@@ -695,3 +695,4 @@ catch (error) {
         fallback: true
     };
 }
+console.log("[API BASE]", this.baseURL);
