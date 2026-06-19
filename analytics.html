@@ -1,1 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        OPN Stake Analytics Dashboard
+    </title>
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="assets/css/dashboard.css">
+
+    <link rel="stylesheet"
+          href="assets/css/responsive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="container">
+
+        <div class="logo">
+
+            OPN Stake Analytics
+
+        </div>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#overview">
+                        Overview
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#tvl">
+                        TVL
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#validators">
+                        Validators
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#revenue">
+                        Revenue
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <button
+            class="connect-wallet-btn"
+            id="openWalletModal">
+
+            Connect Wallet
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="overview">
+
+    <div class="dashboard-container">
+
+        <div class="metrics-grid">
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    Total Value Locked
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="tvlCounter">
+
+                    $0
+
+                </div>
+
+                <div
+                    class="metric-change positive">
+
+                    +12.4%
+
+                </div>
+
+            </div>
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    Average APR
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="averageAPR">
+
+                    0%
+
+                </div>
+
+                <div
+                    class="metric-change positive">
+
+                    +0.8%
+
+                </div>
+
+            </div>
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    Validators
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="validatorCount">
+
+                    0
+
+                </div>
+
+            </div>
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    Treasury
+                </div>
+
+                <div
+                    class="metric-value"
+                    id="treasuryValue">
+
+                    $0
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     TVL + APR
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="tvl">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-grid">
+
+            <div class="col-6">
+
+                <div class="chart-card">
+
+                    <div class="chart-header">
+
+                        <div>
+
+                            <div class="chart-title">
+                                TVL Growth
+                            </div>
+
+                            <div class="chart-subtitle">
+                                Historical TVL
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <canvas id="tvlChart"></canvas>
+
+                </div>
+
+            </div>
+
+            <div class="col-6">
+
+                <div class="chart-card">
+
+                    <div class="chart-header">
+
+                        <div>
+
+                            <div class="chart-title">
+                                APR Trend
+                            </div>
+
+                            <div class="chart-subtitle">
+                                Yield Performance
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <canvas id="aprChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     VALIDATORS
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="validators">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-grid">
+
+            <div class="col-6">
+
+                <div class="chart-card">
+
+                    <div class="chart-header">
+
+                        <div class="chart-title">
+                            Validator Distribution
+                        </div>
+
+                    </div>
+
+                    <canvas
+                        id="validatorChart">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+            <div class="col-6">
+
+                <div class="validator-card">
+
+                    <h3>
+                        Top Validators
+                    </h3>
+
+                    <table
+                        class="validator-table">
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                Validator
+                            </th>
+
+                            <th>
+                                Stake
+                            </th>
+
+                            <th>
+                                APR
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="validatorTable">
+
+                        <tr>
+
+                            <td>
+                                OPN Validator #1
+                            </td>
+
+                            <td>
+                                52M
+                            </td>
+
+                            <td>
+                                7.8%
+                            </td>
+
+                            <td>
+
+                                <span
+                                  class="validator-status online">
+
+                                    ● Online
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- =====================================================
+     REVENUE
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="revenue">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-grid">
+
+            <div class="col-8">
+
+                <div class="chart-card">
+
+                    <div class="chart-header">
+
+                        <div class="chart-title">
+                            Revenue Analytics
+                        </div>
+
+                    </div>
+
+                    <canvas
+                        id="revenueChart">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+            <div class="col-4">
+
+                <div class="chart-card">
+
+                    <div class="chart-header">
+
+                        <div class="chart-title">
+                            Revenue Sources
+                        </div>
+
+                    </div>
+
+                    <canvas
+                        id="revenueSourcesChart">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     PORTFOLIO
+===================================================== -->
+
+<section
+    class="dashboard-section">
+
+    <div class="dashboard-container">
+
+        <div class="portfolio-card">
+
+            <h2>
+                Portfolio Overview
+            </h2>
+
+            <div class="asset-row">
+
+                <span class="asset-symbol">
+                    stOPN
+                </span>
+
+                <span
+                    id="stOPNBalance"
+                    class="asset-balance">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div class="asset-row">
+
+                <span class="asset-symbol">
+                    rstOPN
+                </span>
+
+                <span
+                    id="rstOPNBalance"
+                    class="asset-balance">
+
+                    0
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <p>
+
+            © 2026 OPN Stake Analytics
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- =====================================================
+     WALLET MODAL
+===================================================== -->
+
+<div
+    id="walletModal"
+    class="wallet-modal">
+
+    <div
+        class="wallet-modal-content">
+
+        <h2>
+
+            Connect Wallet
+
+        </h2>
+
+        <button
+            class="wallet-option">
+
+            MetaMask
+
+        </button>
+
+        <button
+            class="wallet-option">
+
+            Rabby
+
+        </button>
+
+        <button
+            class="wallet-option">
+
+            OKX Wallet
+
+        </button>
+
+        <button
+            class="wallet-option">
+
+            WalletConnect
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     TOASTS
+===================================================== -->
+
+<div
+    id="toastContainer"
+    class="toast-container">
+
+</div>
+
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6/dist/ethers.umd.min.js"></script>
+
+<script src="assets/js/config.js"></script>
+
+<script src="assets/js/api.js"></script>
+
+<script src="assets/js/notifications.js"></script>
+
+<script src="assets/js/wallet.js"></script>
+
+<script src="assets/js/walletconnect.js"></script>
+
+<script src="assets/js/staking.js"></script>
+
+<script src="assets/js/analytics.js"></script>
+
+<script src="assets/js/charts.js"></script>
+
+<script src="assets/js/governance.js"></script>
+
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>
