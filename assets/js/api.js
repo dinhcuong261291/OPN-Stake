@@ -686,3 +686,12 @@ document.addEventListener(
         );
     }
 );
+catch (error) {
+    console.warn("API failed → fallback mode");
+
+    return {
+        tvl: 125000000,
+        apr: 7.8,
+        fallback: true
+    };
+}
