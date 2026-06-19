@@ -1,1 +1,595 @@
+/* ==========================================================
+   OPN Stake
+   responsive.css
+   Production Responsive System
+   ========================================================== */
 
+/* ==========================================================
+   ULTRA WIDE
+   ========================================================== */
+
+@media (min-width: 1800px){
+
+    .container{
+
+        max-width:1600px;
+    }
+
+    .hero-title{
+
+        font-size:5rem;
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:
+        repeat(4,1fr);
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+    }
+}
+
+/* ==========================================================
+   DESKTOP
+   ========================================================== */
+
+@media (max-width: 1400px){
+
+    .container{
+
+        max-width:1200px;
+    }
+
+    .hero-title{
+
+        font-size:4rem;
+    }
+}
+
+/* ==========================================================
+   LAPTOP
+   ========================================================== */
+
+@media (max-width: 1200px){
+
+    .container{
+
+        padding-inline:32px;
+    }
+
+    .hero-content{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .hero-left{
+
+        text-align:center;
+    }
+
+    .hero-actions{
+
+        justify-content:center;
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .governance-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+}
+
+/* ==========================================================
+   TABLET LANDSCAPE
+   ========================================================== */
+
+@media (max-width: 1024px){
+
+    .navbar{
+
+        padding:16px 24px;
+    }
+
+    .nav-links{
+
+        display:none;
+    }
+
+    .mobile-menu-btn{
+
+        display:flex;
+    }
+
+    .dashboard-grid{
+
+        gap:20px;
+    }
+
+    .stats-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .validator-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .staking-layout{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .governance-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .treasury-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .proposal-card{
+
+        padding:24px;
+    }
+}
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 768px){
+
+    section{
+
+        padding:80px 0;
+    }
+
+    .container{
+
+        padding-inline:20px;
+    }
+
+    .hero{
+
+        min-height:auto;
+        padding-top:120px;
+    }
+
+    .hero-title{
+
+        font-size:3rem;
+        line-height:1.1;
+    }
+
+    .hero-description{
+
+        font-size:1rem;
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+        align-items:center;
+        width:100%;
+    }
+
+    .hero-actions .btn{
+
+        width:100%;
+        max-width:320px;
+    }
+
+    .section-title{
+
+        font-size:2.2rem;
+    }
+
+    .stats-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .treasury-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .chart-card{
+
+        min-height:350px;
+    }
+
+    .chart-card canvas{
+
+        max-height:280px;
+    }
+
+    .wallet-modal-content{
+
+        width:95%;
+        padding:24px;
+    }
+
+    .governance-modal-content{
+
+        width:95%;
+        padding:24px;
+    }
+
+    .proposal-header{
+
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .vote-actions{
+
+        flex-direction:column;
+    }
+
+    .vote-actions button{
+
+        width:100%;
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+        gap:16px;
+        text-align:center;
+    }
+}
+
+/* ==========================================================
+   MOBILE LARGE
+   ========================================================== */
+
+@media (max-width: 576px){
+
+    .navbar{
+
+        padding:14px 16px;
+    }
+
+    .logo{
+
+        font-size:1.2rem;
+    }
+
+    .hero-title{
+
+        font-size:2.5rem;
+    }
+
+    .hero-subtitle{
+
+        font-size:.9rem;
+    }
+
+    .section-title{
+
+        font-size:2rem;
+    }
+
+    .section-description{
+
+        font-size:.95rem;
+    }
+
+    .metric-card{
+
+        padding:20px;
+    }
+
+    .metric-value{
+
+        font-size:2rem;
+    }
+
+    .staking-card{
+
+        padding:24px;
+    }
+
+    .staking-card input{
+
+        font-size:1rem;
+    }
+
+    .wallet-option{
+
+        padding:14px;
+    }
+
+    .chart-card{
+
+        padding:18px;
+    }
+
+    .chart-header{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .proposal-card{
+
+        padding:20px;
+    }
+
+    .proposal-card h3{
+
+        font-size:1.1rem;
+    }
+
+    .faq-item{
+
+        padding:18px;
+    }
+
+    .footer{
+
+        padding-top:60px;
+    }
+
+    .footer-links{
+
+        gap:10px;
+    }
+}
+
+/* ==========================================================
+   MOBILE SMALL
+   ========================================================== */
+
+@media (max-width: 420px){
+
+    .container{
+
+        padding-inline:16px;
+    }
+
+    .hero-title{
+
+        font-size:2rem;
+    }
+
+    .hero-description{
+
+        font-size:.9rem;
+    }
+
+    .btn{
+
+        width:100%;
+    }
+
+    .metric-value{
+
+        font-size:1.8rem;
+    }
+
+    .metric-label{
+
+        font-size:.85rem;
+    }
+
+    .wallet-modal-content{
+
+        padding:18px;
+    }
+
+    .governance-modal-content{
+
+        padding:18px;
+    }
+
+    .chart-card{
+
+        min-height:300px;
+    }
+
+    .chart-card canvas{
+
+        max-height:220px;
+    }
+
+    .proposal-card{
+
+        padding:16px;
+    }
+
+    .proposal-status{
+
+        font-size:.75rem;
+    }
+
+    .toast{
+
+        min-width:auto;
+        width:calc(100vw - 32px);
+    }
+}
+
+/* ==========================================================
+   MOBILE NAVIGATION
+   ========================================================== */
+
+.mobile-menu{
+
+    position:fixed;
+
+    top:0;
+    right:-100%;
+
+    width:280px;
+    height:100vh;
+
+    background:#0f172a;
+
+    transition:.3s ease;
+
+    z-index:9999;
+
+    padding:80px 24px;
+}
+
+.mobile-menu.active{
+
+    right:0;
+}
+
+.mobile-menu ul{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.mobile-menu a{
+
+    font-size:1rem;
+}
+
+/* ==========================================================
+   TABLE SCROLL
+   ========================================================== */
+
+.table-responsive{
+
+    overflow-x:auto;
+    width:100%;
+}
+
+.table-responsive table{
+
+    min-width:700px;
+}
+
+/* ==========================================================
+   CHART FIXES
+   ========================================================== */
+
+.chart-card{
+
+    position:relative;
+}
+
+.chart-card canvas{
+
+    width:100% !important;
+}
+
+/* ==========================================================
+   WALLET CONNECT FIX
+   ========================================================== */
+
+.wallet-option{
+
+    width:100%;
+}
+
+.wallet-option img{
+
+    width:32px;
+    height:32px;
+}
+
+/* ==========================================================
+   FAQ FIX
+   ========================================================== */
+
+.faq-question{
+
+    cursor:pointer;
+}
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .3s ease;
+}
+
+.faq-item.active .faq-answer{
+
+    max-height:300px;
+}
+
+/* ==========================================================
+   SCROLL ANIMATION
+   ========================================================== */
+
+.fade-in{
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+
+    transition:
+    opacity .6s ease,
+    transform .6s ease;
+}
+
+.fade-in.visible{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+}
