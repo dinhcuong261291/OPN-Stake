@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OPN Stake | Liquid Staking Infrastructure</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+OPN Stake | Liquid Staking & Restaking Infrastructure
+</title>
 
 <meta name="description"
-content="Liquid Staking & Restaking Infrastructure for OPN Chain">
+      content="Stake OPN, mint stOPN, restake into AVS networks and participate in OPN Governance.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:title"
+      content="OPN Stake">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-rel="stylesheet">
+<meta property="og:description"
+      content="Liquid Staking Infrastructure on OPN Chain">
 
-<link rel="stylesheet" href="assets/css/style.css">
+<meta property="og:type"
+      content="website">
+
+<link rel="icon"
+      href="assets/images/favicon.png">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+      href="assets/css/style.css">
+
+<link rel="stylesheet"
+      href="assets/css/dashboard.css">
+
+<link rel="stylesheet"
+      href="assets/css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
 
-<!-- ===================================================== -->
-<!-- BACKGROUND EFFECTS -->
-<!-- ===================================================== -->
+<!-- ==========================================
+NAVBAR
+========================================== -->
 
-<div class="bg-grid"></div>
-<div class="gradient-orb orb-1"></div>
-<div class="gradient-orb orb-2"></div>
-<div class="gradient-orb orb-3"></div>
-
-<!-- ===================================================== -->
-<!-- HEADER -->
-<!-- ===================================================== -->
-
-<header class="header">
+<header class="navbar">
 
 <div class="container">
 
-<nav class="navbar">
+<div class="logo">
 
-<div class="logo-wrapper">
-
-<div class="logo-icon">
-OPN
-</div>
-
-<div class="logo-text">
 OPN Stake
-</div>
 
 </div>
 
-<ul class="nav-menu">
+<nav>
+
+<ul class="nav-links">
 
 <li>
-<a href="#stake">
-Stake
+<a href="#staking">
+Staking
 </a>
 </li>
 
 <li>
-<a href="#restake">
-Restake
+<a href="#restaking">
+Restaking
+</a>
+</li>
+
+<li>
+<a href="#analytics">
+Analytics
 </a>
 </li>
 
@@ -82,144 +93,204 @@ Governance
 </a>
 </li>
 
-<li>
-<a href="#faq">
-FAQ
-</a>
-</li>
-
 </ul>
 
-<div class="header-actions">
+</nav>
 
-<button class="theme-toggle">
+<div class="nav-actions">
 
-<i class="fa-solid fa-moon"></i>
+<div class="network-indicator">
 
-</button>
+<span class="network-dot"></span>
+
+OPN Mainnet
+
+</div>
 
 <button
-class="connect-wallet-btn"
-id="openWalletModal">
+id="openWalletModal"
+class="connect-wallet-btn">
 
 Connect Wallet
 
 </button>
 
 </div>
-
-</nav>
 
 </div>
 
 </header>
 
-<!-- ===================================================== -->
-<!-- HERO SECTION -->
-<!-- ===================================================== -->
+<!-- ==========================================
+WALLET MODAL
+========================================== -->
 
-<section class="hero-section">
+<div
+id="walletModal"
+class="wallet-modal">
 
-<div class="container">
+<div
+class="wallet-modal-content">
 
-<div class="hero-grid">
+<h2>
 
-<div class="hero-left">
+Connect Wallet
 
-<div class="hero-badge">
+</h2>
 
-<span class="badge-dot"></span>
+<button
+class="wallet-option metamask-btn">
 
-Powered by OPN Chain
+MetaMask
+
+</button>
+
+<button
+class="wallet-option rabby-btn">
+
+Rabby Wallet
+
+</button>
+
+<button
+class="wallet-option okx-btn">
+
+OKX Wallet
+
+</button>
+
+<button
+class="wallet-option walletconnect-btn">
+
+WalletConnect
+
+</button>
 
 </div>
 
-<h1 class="hero-title">
+</div>
+
+<!-- ==========================================
+HERO
+========================================== -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<span class="hero-badge">
+
+Liquid Staking Protocol
+
+</span>
+
+<h1>
 
 Stake OPN.
-<br>
-
 Stay Liquid.
-<br>
-
 Earn More.
 
 </h1>
 
-<p class="hero-description">
+<p>
 
-OPN Stake is the leading liquid staking and
-restaking protocol built for OPN Chain.
-
-Stake OPN and receive stOPN instantly while
-continuing to participate across the DeFi
-ecosystem.
+Receive stOPN while earning staking rewards.
+Restake stOPN into actively validated services
+for additional yield.
 
 </p>
 
 <div class="hero-actions">
 
-<button class="primary-btn">
+<a href="stake.html"
+   class="primary-btn">
 
 Start Staking
 
-</button>
+</a>
 
-<button class="secondary-btn">
+<a href="analytics.html"
+   class="secondary-btn">
 
-Learn More
+View Analytics
 
-</button>
+</a>
 
 </div>
 
-<div class="hero-metrics">
+</div>
 
-<div class="metric-card">
+<div class="hero-dashboard">
 
-<h3 id="heroTVL">
+<div class="hero-card">
 
-$287M
-
-</h3>
-
-<span>
+<div class="hero-label">
 
 Total Value Locked
 
-</span>
+</div>
+
+<div
+id="tvlCounter"
+class="hero-value">
+
+$0
 
 </div>
 
-<div class="metric-card">
+</div>
 
-<h3 id="heroAPR">
+<div class="hero-card">
 
-7.85%
+<div class="hero-label">
 
-</h3>
-
-<span>
-
-Current APR
-
-</span>
+Average APR
 
 </div>
 
-<div class="metric-card">
+<div
+id="averageAPR"
+class="hero-value">
 
-<h3 id="heroValidators">
+0%
 
-86
+</div>
 
-</h3>
+</div>
 
-<span>
+<div class="hero-card">
+
+<div class="hero-label">
 
 Validators
 
-</span>
+</div>
+
+<div
+id="validatorCount"
+class="hero-value">
+
+0
+
+</div>
+
+</div>
+
+<div class="hero-card">
+
+<div class="hero-label">
+
+Restaked
+
+</div>
+
+<div
+id="restakedAssets"
+class="hero-value">
+
+0
 
 </div>
 
@@ -227,178 +298,81 @@ Validators
 
 </div>
 
-<!-- HERO RIGHT -->
-<div class="hero-right">
-
-<div class="dashboard-preview">
-
-<div class="dashboard-header">
-
-<div class="dashboard-title">
-Live Dashboard
 </div>
 
-<div class="live-indicator">
+</section>
 
-<span></span>
+<!-- ==========================================
+LIVE METRICS
+========================================== -->
 
-Live
+<section class="metrics-section">
 
-</div>
+<div class="container">
 
-</div>
+<div class="metrics-grid">
 
-<div class="dashboard-content">
+<div class="metric-card">
 
-<div class="dashboard-stat">
-
-<div class="stat-label">
+<h4>
 
 Total Staked
 
-</div>
+</h4>
 
-<div class="stat-value">
+<span id="totalStaked">
 
-82,514,881 OPN
+0 OPN
 
-</div>
-
-</div>
-
-<div class="dashboard-stat">
-
-<div class="stat-label">
-
-TVL
+</span>
 
 </div>
 
-<div class="stat-value green">
+<div class="metric-card">
 
-$287,000,000
+<h4>
 
-</div>
+Active Users
 
-</div>
+</h4>
 
-<div class="dashboard-stat">
+<span id="activeUsers">
 
-<div class="stat-label">
+0
 
-APR
-
-</div>
-
-<div class="stat-value blue">
-
-7.85%
+</span>
 
 </div>
 
-</div>
+<div class="metric-card">
 
-<div class="dashboard-chart">
+<h4>
 
-<div class="chart-placeholder">
+Protocol Revenue
 
-TVL CHART
+</h4>
 
-</div>
+<span id="protocolRevenue">
 
-</div>
+$0
 
-</div>
-
-</div>
+</span>
 
 </div>
 
-</div>
+<div class="metric-card">
 
-</div>
+<h4>
 
-</section>
+Treasury
 
-<!-- ===================================================== -->
-<!-- LIVE STATS -->
-<!-- ===================================================== -->
+</h4>
 
-<section class="stats-section">
+<span id="treasuryBalance">
 
-<div class="container">
+$0
 
-<div class="stats-grid">
-
-<div class="stats-box">
-
-<div class="stats-icon">
-
-<i class="fa-solid fa-chart-line"></i>
-
-</div>
-
-<h2 id="tvlCounter">
-
-$287M
-
-</h2>
-
-<p>Total Value Locked</p>
-
-</div>
-
-<div class="stats-box">
-
-<div class="stats-icon">
-
-<i class="fa-solid fa-percent"></i>
-
-</div>
-
-<h2 id="aprCounter">
-
-7.85%
-
-</h2>
-
-<p>Current APR</p>
-
-</div>
-
-<div class="stats-box">
-
-<div class="stats-icon">
-
-<i class="fa-solid fa-users"></i>
-
-</div>
-
-<h2 id="validatorCounter">
-
-86
-
-</h2>
-
-<p>Validators</p>
-
-</div>
-
-<div class="stats-box">
-
-<div class="stats-icon">
-
-<i class="fa-solid fa-wallet"></i>
-
-</div>
-
-<h2 id="walletCounter">
-
-124,589
-
-</h2>
-
-<p>Active Wallets</p>
+</span>
 
 </div>
 
@@ -408,208 +382,83 @@ $287M
 
 </section>
 
-<!-- ===================================================== -->
-<!-- STAKING WIDGET -->
-<!-- ===================================================== -->
+<!-- ==========================================
+QUICK ACTIONS
+========================================== -->
 
-<section
-id="stake"
-class="staking-widget-section">
+<section class="quick-actions">
 
 <div class="container">
 
-<div class="staking-grid">
+<div class="action-grid">
 
-<div class="staking-left">
+<a href="stake.html"
+   class="action-card">
 
-<h2>
-
-Liquid Staking
-
-</h2>
-
-<p>
-
-Deposit OPN and receive stOPN instantly.
-
-Continue earning staking rewards while
-keeping your assets liquid.
-
-</p>
-
-<ul class="benefit-list">
-
-<li>
-
-<i class="fa-solid fa-check"></i>
-
-No Lockups
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-check"></i>
-
-Instant Liquidity
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-check"></i>
-
-DeFi Compatible
-
-</li>
-
-<li>
-
-<i class="fa-solid fa-check"></i>
-
-Auto Reward Accrual
-
-</li>
-
-</ul>
-
-</div>
-
-<div class="staking-right">
-
-<div class="stake-card">
-
-<div class="stake-card-header">
+<h3>
 
 Stake OPN
 
-</div>
+</h3>
 
-<div class="stake-form">
+<p>
 
-<label>
+Mint stOPN instantly
 
-You Stake
+</p>
 
-</label>
+</a>
 
-<div class="input-wrapper">
+<a href="restake.html"
+   class="action-card">
 
-<input
-type="number"
-placeholder="0.00"
-id="stakeAmount">
+<h3>
 
-<div class="token-symbol">
+Restake stOPN
 
-OPN
+</h3>
 
-</div>
+<p>
 
-</div>
+Earn extra rewards
 
-<div class="balance-row">
+</p>
 
-<span>
+</a>
 
-Balance:
+<a href="validators.html"
+   class="action-card">
 
-</span>
+<h3>
 
-<span>
+Validators
 
-10,245 OPN
+</h3>
 
-</span>
+<p>
 
-</div>
+Explore operators
 
-<label>
+</p>
 
-You Receive
+</a>
 
-</label>
+<a href="governance.html"
+   class="action-card">
 
-<div class="receive-box">
+<h3>
 
-<span id="receiveAmount">
+Governance
 
-0.00
+</h3>
 
-</span>
+<p>
 
-<span>
+Vote on proposals
 
-stOPN
+</p>
 
-</span>
-
-</div>
-
-<div class="stake-info">
-
-<div>
-
-<span>
-
-APR
-
-</span>
-
-<span>
-
-7.85%
-
-</span>
-
-</div>
-
-<div>
-
-<span>
-
-Exchange Rate
-
-</span>
-
-<span>
-
-1 OPN = 1 stOPN
-
-</span>
-
-</div>
-
-<div>
-
-<span>
-
-Protocol Fee
-
-</span>
-
-<span>
-
-0.5%
-
-</span>
-
-</div>
-
-</div>
-
-<button
-class="stake-btn-full">
-
-Stake Now
-
-</button>
-
-</div>
-
-</div>
-
-</div>
+</a>
 
 </div>
 
@@ -617,355 +466,112 @@ Stake Now
 
 </section>
 
-<!-- ===================================================== -->
-<!-- WALLET CONNECT MODAL -->
-<!-- ===================================================== -->
-
-<div
-class="wallet-modal"
-id="walletModal">
-
-<div class="wallet-modal-content">
-
-<div class="wallet-modal-header">
-
-<h3>
-
-Connect Wallet
-
-</h3>
-
-<button
-class="close-modal"
-id="closeWalletModal">
-
-×
-
-</button>
-
-</div>
-
-<div class="wallet-list">
-
-<button
-class="wallet-option">
-
-<img
-src="assets/images/metamask.svg"
-alt="MetaMask">
-
-<span>
-
-MetaMask
-
-</span>
-
-</button>
-
-<button
-class="wallet-option">
-
-<img
-src="assets/images/rabby.svg"
-alt="Rabby">
-
-<span>
-
-Rabby Wallet
-
-</span>
-
-</button>
-
-<button
-class="wallet-option">
-
-<img
-src="assets/images/okx.svg"
-alt="OKX">
-
-<span>
-
-OKX Wallet
-
-</span>
-
-</button>
-
-<button
-class="wallet-option">
-
-<img
-src="assets/images/walletconnect.svg"
-alt="WalletConnect">
-
-<span>
-
-WalletConnect
-
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ===================================================== -->
-<!-- PART 1 END -->
-<!-- ===================================================== -->
-
-<!-- ===================================================== -->
-<!-- RESTAKING MARKETPLACE -->
-<!-- ===================================================== -->
+<!-- ==========================================
+STAKING SECTION
+========================================== -->
 
 <section
-id="restake"
-class="restaking-section">
+id="staking"
+class="protocol-section">
 
 <div class="container">
 
 <div class="section-header">
 
-<div class="section-badge">
-Restaking Marketplace
-</div>
+<span class="section-badge">
+
+LIQUID STAKING
+
+</span>
 
 <h2>
-Maximize Yield Through Restaking
+
+Stake OPN & Receive stOPN
+
 </h2>
 
 <p>
-Deploy stOPN into additional security services
-and earn rewards beyond standard staking APR.
+
+Maintain liquidity while securing OPN Chain.
+
 </p>
 
 </div>
-
-<div class="restaking-grid">
-
-<div class="avs-card">
-
-<div class="avs-top">
-
-<div class="avs-logo">
-OR
-</div>
-
-<div class="avs-status active">
-Active
-</div>
-
-</div>
-
-<h3>
-OPN Oracle Network
-</h3>
-
-<p>
-Secure decentralized oracle infrastructure
-across OPN ecosystem.
-</p>
-
-<div class="avs-metrics">
-
-<div>
-<span>Reward APR</span>
-<strong>3.2%</strong>
-</div>
-
-<div>
-<span>TVL</span>
-<strong>$42M</strong>
-</div>
-
-</div>
-
-<button class="join-avs-btn">
-Restake Now
-</button>
-
-</div>
-
-<div class="avs-card">
-
-<div class="avs-top">
-
-<div class="avs-logo">
-DA
-</div>
-
-<div class="avs-status active">
-Active
-</div>
-
-</div>
-
-<h3>
-Data Availability Layer
-</h3>
-
-<p>
-Provide security guarantees for modular
-data availability infrastructure.
-</p>
-
-<div class="avs-metrics">
-
-<div>
-<span>Reward APR</span>
-<strong>5.4%</strong>
-</div>
-
-<div>
-<span>TVL</span>
-<strong>$61M</strong>
-</div>
-
-</div>
-
-<button class="join-avs-btn">
-Restake Now
-</button>
-
-</div>
-
-<div class="avs-card">
-
-<div class="avs-top">
-
-<div class="avs-logo">
-SQ
-</div>
-
-<div class="avs-status active">
-Active
-</div>
-
-</div>
-
-<h3>
-Sequencer Security
-</h3>
-
-<p>
-Support decentralized sequencer operations
-and network finality.
-</p>
-
-<div class="avs-metrics">
-
-<div>
-<span>Reward APR</span>
-<strong>6.8%</strong>
-</div>
-
-<div>
-<span>TVL</span>
-<strong>$73M</strong>
-</div>
-
-</div>
-
-<button class="join-avs-btn">
-Restake Now
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- RESTAKING DASHBOARD -->
-<!-- ===================================================== -->
-
-<section class="restaking-dashboard">
-
-<div class="container">
 
 <div class="dashboard-grid">
 
-<div class="dashboard-card">
+<div class="col-6">
+
+<div class="staking-widget">
 
 <h3>
-Total Restaked Assets
+
+Stake OPN
+
 </h3>
 
-<div class="big-number">
+<input
+id="stakeAmount"
+class="stake-input"
+placeholder="0.00 OPN">
 
-$176,000,000
+<button
+id="stakeBtn"
+class="primary-btn">
+
+Stake
+
+</button>
 
 </div>
 
-<div class="growth">
-
-+18.6% This Month
-
 </div>
 
-</div>
+<div class="col-6">
 
-<div class="dashboard-card">
+<div class="staking-widget">
 
 <h3>
-Average Restaking APR
+
+Reward Calculator
+
 </h3>
 
-<div class="big-number">
+<input
+id="rewardInput"
+class="stake-input"
+placeholder="Amount">
 
-5.18%
+<div class="reward-results">
 
-</div>
+<div>
 
-<div class="growth">
-
-+0.32% This Week
-
-</div>
-
-</div>
-
-<div class="dashboard-card">
-
-<h3>
-Active AVS
-</h3>
-
-<div class="big-number">
-
-12
+Daily:
+<span id="dailyReward">
+0
+</span>
 
 </div>
 
-<div class="growth">
+<div>
 
-+3 New AVS
+Monthly:
+<span id="monthlyReward">
+0
+</span>
+
+</div>
+
+<div>
+
+Yearly:
+<span id="yearlyReward">
+0
+</span>
 
 </div>
 
 </div>
-
-<div class="dashboard-card">
-
-<h3>
-rstOPN Supply
-</h3>
-
-<div class="big-number">
-
-44.3M
-
-</div>
-
-<div class="growth">
-
-+7.4% Monthly
 
 </div>
 
@@ -976,46 +582,276 @@ rstOPN Supply
 </div>
 
 </section>
-
-<!-- ===================================================== -->
-<!-- TVL ANALYTICS -->
-<!-- ===================================================== -->
+<!-- ==========================================
+RESTAKING MARKETPLACE
+========================================== -->
 
 <section
-id="analytics"
-class="analytics-section">
+id="restaking"
+class="protocol-section">
 
 <div class="container">
 
 <div class="section-header">
 
-<div class="section-badge">
+<span class="section-badge">
 
-Analytics
+LIQUID RESTAKING
 
-</div>
+</span>
 
 <h2>
 
-Network Intelligence Dashboard
+Restake stOPN For Additional Yield
 
 </h2>
 
 <p>
 
-Monitor staking growth,
-validator performance,
-and ecosystem security.
+Allocate stOPN to actively validated services
+and earn additional rewards on top of staking APR.
 
 </p>
 
 </div>
 
-<div class="analytics-grid">
+<div class="marketplace-grid">
+
+<div class="avs-card">
+
+<div class="avs-header">
+
+<h3>
+
+Oracle AVS
+
+</h3>
+
+<span class="avs-apr">
+
++2.3%
+
+</span>
+
+</div>
+
+<p>
+
+Secure decentralized oracle infrastructure
+across OPN ecosystem applications.
+
+</p>
+
+<button
+class="primary-btn restake-btn"
+data-avs="oracle">
+
+Restake
+
+</button>
+
+</div>
+
+<div class="avs-card">
+
+<div class="avs-header">
+
+<h3>
+
+Data Availability AVS
+
+</h3>
+
+<span class="avs-apr">
+
++3.1%
+
+</span>
+
+</div>
+
+<p>
+
+Provide additional data availability
+security for rollups and applications.
+
+</p>
+
+<button
+class="primary-btn restake-btn"
+data-avs="da">
+
+Restake
+
+</button>
+
+</div>
+
+<div class="avs-card">
+
+<div class="avs-header">
+
+<h3>
+
+AI Network AVS
+
+</h3>
+
+<span class="avs-apr">
+
++4.8%
+
+</span>
+
+</div>
+
+<p>
+
+Secure AI inference and decentralized
+compute infrastructure.
+
+</p>
+
+<button
+class="primary-btn restake-btn"
+data-avs="ai">
+
+Restake
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+RESTAKING METRICS
+========================================== -->
+
+<section class="metrics-section">
+
+<div class="container">
+
+<div class="metrics-grid">
+
+<div class="metric-card">
+
+<h4>
+
+Total Restaked
+
+</h4>
+
+<span id="restakingTVL">
+
+0
+
+</span>
+
+</div>
+
+<div class="metric-card">
+
+<h4>
+
+AVS Secured
+
+</h4>
+
+<span id="avsCount">
+
+0
+
+</span>
+
+</div>
+
+<div class="metric-card">
+
+<h4>
+
+Operators
+
+</h4>
+
+<span id="operatorCount">
+
+0
+
+</span>
+
+</div>
+
+<div class="metric-card">
+
+<h4>
+
+Restaking APR
+
+</h4>
+
+<span id="restakingAPR">
+
+0%
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+ANALYTICS DASHBOARD
+========================================== -->
+
+<section
+id="analytics"
+class="protocol-section">
+
+<div class="container">
+
+<div class="section-header">
+
+<span class="section-badge">
+
+ANALYTICS
+
+</span>
+
+<h2>
+
+Protocol Analytics
+
+</h2>
+
+<p>
+
+Track protocol growth,
+staking activity,
+validator performance,
+and treasury revenue.
+
+</p>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="col-6">
 
 <div class="chart-card">
 
 <div class="chart-header">
+
+<div>
 
 <h3>
 
@@ -1023,37 +859,29 @@ TVL Growth
 
 </h3>
 
-<div class="time-selector">
+<p>
 
-<button class="active">
-7D
-</button>
+Historical TVL
 
-<button>
-30D
-</button>
-
-<button>
-90D
-</button>
-
-<button>
-1Y
-</button>
+</p>
 
 </div>
 
 </div>
 
-<canvas
-id="tvlChart">
-</canvas>
+<canvas id="tvlChart"></canvas>
 
 </div>
+
+</div>
+
+<div class="col-6">
 
 <div class="chart-card">
 
 <div class="chart-header">
+
+<div>
 
 <h3>
 
@@ -1061,11 +889,19 @@ APR Trend
 
 </h3>
 
+<p>
+
+Average Staking Yield
+
+</p>
+
 </div>
 
-<canvas
-id="aprChart">
-</canvas>
+</div>
+
+<canvas id="aprChart"></canvas>
+
+</div>
 
 </div>
 
@@ -1075,187 +911,282 @@ id="aprChart">
 
 </section>
 
-<!-- ===================================================== -->
-<!-- VALIDATOR ANALYTICS -->
-<!-- ===================================================== -->
+<!-- ==========================================
+REVENUE ANALYTICS
+========================================== -->
+
+<section class="protocol-section">
+
+<div class="container">
+
+<div class="dashboard-grid">
+
+<div class="col-8">
+
+<div class="chart-card">
+
+<div class="chart-header">
+
+<div>
+
+<h3>
+
+Revenue Analytics
+
+</h3>
+
+<p>
+
+Protocol Revenue Growth
+
+</p>
+
+</div>
+
+</div>
+
+<canvas id="revenueChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-4">
+
+<div class="chart-card">
+
+<div class="chart-header">
+
+<div>
+
+<h3>
+
+Revenue Sources
+
+</h3>
+
+<p>
+
+Distribution
+
+</p>
+
+</div>
+
+</div>
+
+<canvas id="revenueSourcesChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+VALIDATOR ANALYTICS
+========================================== -->
+
+<section class="protocol-section">
+
+<div class="container">
+
+<div class="dashboard-grid">
+
+<div class="col-6">
+
+<div class="chart-card">
+
+<div class="chart-header">
+
+<div>
+
+<h3>
+
+Validator Distribution
+
+</h3>
+
+<p>
+
+Stake Allocation
+
+</p>
+
+</div>
+
+</div>
+
+<canvas id="validatorChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="chart-card">
+
+<div class="chart-header">
+
+<div>
+
+<h3>
+
+Operator Performance
+
+</h3>
+
+<p>
+
+Top Operators
+
+</p>
+
+</div>
+
+</div>
+
+<canvas id="operatorChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+VALIDATOR NETWORK
+========================================== -->
 
 <section
 id="validators"
-class="validator-section">
+class="protocol-section">
 
 <div class="container">
 
 <div class="section-header">
 
-<div class="section-badge">
-Validators
-</div>
+<span class="section-badge">
+
+VALIDATORS
+
+</span>
 
 <h2>
-Validator Analytics
+
+Validator Network
+
 </h2>
 
 <p>
-Transparent performance metrics
-for every validator.
+
+Explore validator performance,
+stake distribution,
+and uptime statistics.
+
 </p>
 
 </div>
 
-<div class="validator-overview">
+<div class="validator-table-wrapper">
 
-<div class="validator-stat">
-
-<h3>
-86
-</h3>
-
-<span>
-Active Validators
-</span>
-
-</div>
-
-<div class="validator-stat">
-
-<h3>
-99.98%
-</h3>
-
-<span>
-Network Uptime
-</span>
-
-</div>
-
-<div class="validator-stat">
-
-<h3>
-0
-</h3>
-
-<span>
-Slashing Events
-</span>
-
-</div>
-
-<div class="validator-stat">
-
-<h3>
-82.5M
-</h3>
-
-<span>
-Delegated OPN
-</span>
-
-</div>
-
-</div>
-
-<div class="validator-table">
-
-<table>
+<table class="validator-table">
 
 <thead>
 
 <tr>
 
 <th>
+
 Validator
+
 </th>
 
 <th>
+
+Stake
+
+</th>
+
+<th>
+
+APR
+
+</th>
+
+<th>
+
 Commission
+
 </th>
 
 <th>
-Delegated
-</th>
 
-<th>
 Uptime
+
 </th>
 
 <th>
-Score
+
+Status
+
 </th>
 
 </tr>
 
 </thead>
 
-<tbody>
+<tbody id="validatorTable">
 
 <tr>
 
 <td>
-OPN Secure
+
+OPN Validator #1
+
 </td>
 
 <td>
+
+52,000,000
+
+</td>
+
+<td>
+
+7.9%
+
+</td>
+
+<td>
+
 5%
+
 </td>
 
 <td>
-12.8M
-</td>
 
-<td>
-99.99%
-</td>
-
-<td>
-AAA
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-StakeHub
-</td>
-
-<td>
-4%
-</td>
-
-<td>
-9.3M
-</td>
-
-<td>
 99.98%
+
 </td>
 
 <td>
-AAA
-</td>
 
-</tr>
+<span class="validator-status online">
 
-<tr>
+● Online
 
-<td>
-ChainNode
-</td>
+</span>
 
-<td>
-6%
-</td>
-
-<td>
-8.1M
-</td>
-
-<td>
-99.95%
-</td>
-
-<td>
-AA+
 </td>
 
 </tr>
@@ -1263,23 +1194,43 @@ AA+
 <tr>
 
 <td>
-SecureStake
+
+OPN Validator #2
+
 </td>
 
 <td>
-5%
+
+41,000,000
+
 </td>
 
 <td>
-7.7M
+
+7.8%
+
 </td>
 
 <td>
-99.91%
+
+4%
+
 </td>
 
 <td>
-AA+
+
+99.97%
+
+</td>
+
+<td>
+
+<span class="validator-status online">
+
+● Online
+
+</span>
+
 </td>
 
 </tr>
@@ -1290,43 +1241,14 @@ AA+
 
 </div>
 
-</div>
+<div class="section-actions">
 
-</section>
+<a href="validators.html"
+   class="secondary-btn">
 
-<!-- ===================================================== -->
-<!-- VALIDATOR DISTRIBUTION -->
-<!-- ===================================================== -->
+View All Validators
 
-<section class="distribution-section">
-
-<div class="container">
-
-<div class="analytics-grid">
-
-<div class="chart-card">
-
-<h3>
-Validator Distribution
-</h3>
-
-<canvas
-id="validatorChart">
-</canvas>
-
-</div>
-
-<div class="chart-card">
-
-<h3>
-Stake Concentration
-</h3>
-
-<canvas
-id="concentrationChart">
-</canvas>
-
-</div>
+</a>
 
 </div>
 
@@ -1334,578 +1256,36 @@ id="concentrationChart">
 
 </section>
 
-<!-- ===================================================== -->
-<!-- REWARD CALCULATOR -->
-<!-- ===================================================== -->
+<!-- ==========================================
+ECOSYSTEM
+========================================== -->
 
-<section
-class="calculator-section">
-
-<div class="container">
-
-<div class="calculator-card">
-
-<h2>
-
-Rewards Calculator
-
-</h2>
-
-<p>
-
-Estimate annual staking and restaking returns.
-
-</p>
-
-<div class="calculator-grid">
-
-<div>
-
-<label>
-
-Stake Amount
-
-</label>
-
-<input
-type="number"
-id="calculatorAmount"
-placeholder="1000">
-
-</div>
-
-<div>
-
-<label>
-
-Base APR
-
-</label>
-
-<input
-type="text"
-value="7.85%"
-readonly>
-
-</div>
-
-<div>
-
-<label>
-
-Restaking APR
-
-</label>
-
-<input
-type="text"
-value="5.18%"
-readonly>
-
-</div>
-
-</div>
-
-<div class="calculator-result">
-
-<div>
-
-<span>
-
-Annual Staking Rewards
-
-</span>
-
-<strong id="stakingRewards">
-
-78.5 OPN
-
-</strong>
-
-</div>
-
-<div>
-
-<span>
-
-Annual Restaking Rewards
-
-</span>
-
-<strong id="restakingRewards">
-
-51.8 OPN
-
-</strong>
-
-</div>
-
-<div>
-
-<span>
-
-Total Estimated Rewards
-
-</span>
-
-<strong id="totalRewards">
-
-130.3 OPN
-
-</strong>
-
-</div>
-
-</div>
-
-<button
-class="primary-btn">
-
-Calculate Rewards
-
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- NETWORK SECURITY -->
-<!-- ===================================================== -->
-
-<section
-class="security-metrics-section">
+<section class="protocol-section">
 
 <div class="container">
 
 <div class="section-header">
 
-<div class="section-badge">
+<span class="section-badge">
 
-Security Metrics
+ECOSYSTEM
 
-</div>
+</span>
 
 <h2>
 
-Economic Security Overview
-
-</h2>
-
-</div>
-
-<div class="security-grid">
-
-<div class="security-card">
-
-<div class="security-icon">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-</div>
-
-<h3>
-
-$463M
-
-</h3>
-
-<p>
-
-Economic Security
-
-</p>
-
-</div>
-
-<div class="security-card">
-
-<div class="security-icon">
-
-<i class="fa-solid fa-lock"></i>
-
-</div>
-
-<h3>
-
-82.5M OPN
-
-</h3>
-
-<p>
-
-Assets Secured
-
-</p>
-
-</div>
-
-<div class="security-card">
-
-<div class="security-icon">
-
-<i class="fa-solid fa-server"></i>
-
-</div>
-
-<h3>
-
-12 AVS
-
-</h3>
-
-<p>
-
-Protected Services
-
-</p>
-
-</div>
-
-<div class="security-card">
-
-<div class="security-icon">
-
-<i class="fa-solid fa-network-wired"></i>
-
-</div>
-
-<h3>
-
-99.98%
-
-</h3>
-
-<p>
-
-Network Availability
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- PART 2 END -->
-<!-- ===================================================== -->
-<!-- ===================================================== -->
-<!-- DAO GOVERNANCE -->
-<!-- ===================================================== -->
-
-<section
-id="governance"
-class="governance-section">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="section-badge">
-DAO Governance
-</div>
-
-<h2>
-Governed By The Community
-</h2>
-
-<p>
-Protocol upgrades, treasury management,
-validator onboarding and ecosystem incentives
-are controlled through decentralized governance.
-</p>
-
-</div>
-
-<div class="proposal-grid">
-
-<div class="proposal-card active">
-
-<div class="proposal-status passed">
-Passed
-</div>
-
-<h3>
-Proposal #17
-</h3>
-
-<h4>
-Increase Restaking Incentives
-</h4>
-
-<p>
-Allocate additional incentives for rstOPN
-holders participating in AVS security.
-</p>
-
-<div class="vote-bar">
-
-<div
-class="vote-for"
-style="width:78%">
-</div>
-
-</div>
-
-<div class="vote-stats">
-
-<span>
-For: 78%
-</span>
-
-<span>
-Against: 22%
-</span>
-
-</div>
-
-</div>
-
-<div class="proposal-card">
-
-<div class="proposal-status voting">
-Voting
-</div>
-
-<h3>
-Proposal #18
-</h3>
-
-<h4>
-Add New Oracle AVS
-</h4>
-
-<p>
-Expand restaking ecosystem by onboarding
-a decentralized oracle provider.
-</p>
-
-<div class="vote-bar">
-
-<div
-class="vote-for"
-style="width:63%">
-</div>
-
-</div>
-
-<div class="vote-stats">
-
-<span>
-For: 63%
-</span>
-
-<span>
-Against: 37%
-</span>
-
-</div>
-
-</div>
-
-<div class="proposal-card">
-
-<div class="proposal-status pending">
-Pending
-</div>
-
-<h3>
-Proposal #19
-</h3>
-
-<h4>
-Treasury Diversification
-</h4>
-
-<p>
-Diversify DAO treasury across ecosystem
-stable assets and yield strategies.
-</p>
-
-<div class="vote-bar">
-
-<div
-class="vote-for"
-style="width:0%">
-</div>
-
-</div>
-
-<div class="vote-stats">
-
-<span>
-Not Started
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- TREASURY DASHBOARD -->
-<!-- ===================================================== -->
-
-<section class="treasury-section">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="section-badge">
-Treasury
-</div>
-
-<h2>
-DAO Treasury Dashboard
-</h2>
-
-</div>
-
-<div class="treasury-grid">
-
-<div class="treasury-card">
-
-<h3>
-Treasury Value
-</h3>
-
-<div class="treasury-value">
-
-$48,500,000
-
-</div>
-
-</div>
-
-<div class="treasury-card">
-
-<h3>
-Stable Assets
-</h3>
-
-<div class="treasury-value">
-
-41%
-
-</div>
-
-</div>
-
-<div class="treasury-card">
-
-<h3>
-OPN Holdings
-</h3>
-
-<div class="treasury-value">
-
-32.7M OPN
-
-</div>
-
-</div>
-
-<div class="treasury-card">
-
-<h3>
-Runway
-</h3>
-
-<div class="treasury-value">
-
-8.7 Years
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- REVENUE ANALYTICS -->
-<!-- ===================================================== -->
-
-<section class="revenue-section">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="section-badge">
-Protocol Revenue
-</div>
-
-<h2>
-Revenue Analytics
-</h2>
-
-</div>
-
-<div class="analytics-grid">
-
-<div class="chart-card">
-
-<h3>
-Monthly Revenue
-</h3>
-
-<canvas id="revenueChart"></canvas>
-
-</div>
-
-<div class="chart-card">
-
-<h3>
-Revenue Sources
-</h3>
-
-<canvas id="revenueSourceChart"></canvas>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- ECOSYSTEM INTEGRATIONS -->
-<!-- ===================================================== -->
-
-<section class="ecosystem-section">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="section-badge">
-Ecosystem
-</div>
-
-<h2>
 Integrated Across OPN
+
 </h2>
 
 <p>
-Use stOPN and rstOPN throughout the
-entire OPN ecosystem.
+
+stOPN and rstOPN can be used
+across lending,
+DEXs,
+yield protocols,
+and governance.
+
 </p>
 
 </div>
@@ -1913,33 +1293,67 @@ entire OPN ecosystem.
 <div class="ecosystem-grid">
 
 <div class="ecosystem-card">
-<h3>OPNSwap</h3>
-<p>DEX Liquidity</p>
+
+<h3>
+
+Lending
+
+</h3>
+
+<p>
+
+Use stOPN as collateral.
+
+</p>
+
 </div>
 
 <div class="ecosystem-card">
-<h3>OPNLend</h3>
-<p>Lending Markets</p>
+
+<h3>
+
+DEX
+
+</h3>
+
+<p>
+
+Provide liquidity and earn fees.
+
+</p>
+
 </div>
 
 <div class="ecosystem-card">
-<h3>OPNBridge</h3>
-<p>Cross-chain Liquidity</p>
+
+<h3>
+
+Yield Vaults
+
+</h3>
+
+<p>
+
+Auto-compound staking rewards.
+
+</p>
+
 </div>
 
 <div class="ecosystem-card">
-<h3>OPNVault</h3>
-<p>Yield Strategies</p>
-</div>
 
-<div class="ecosystem-card">
-<h3>OPN Perps</h3>
-<p>Margin Trading</p>
-</div>
+<h3>
 
-<div class="ecosystem-card">
-<h3>OPN Options</h3>
-<p>Structured Products</p>
+Governance
+
+</h3>
+
+<p>
+
+Participate in protocol decisions.
+
+</p>
+
 </div>
 
 </div>
@@ -1947,113 +1361,209 @@ entire OPN ecosystem.
 </div>
 
 </section>
-
-<!-- ===================================================== -->
-<!-- FAQ -->
-<!-- ===================================================== -->
+<!-- ==========================================
+DAO GOVERNANCE
+========================================== -->
 
 <section
-id="faq"
-class="faq-section">
+id="governance"
+class="protocol-section">
 
 <div class="container">
 
 <div class="section-header">
 
-<div class="section-badge">
-FAQ
-</div>
+<span class="section-badge">
+
+DAO GOVERNANCE
+
+</span>
 
 <h2>
-Frequently Asked Questions
+
+Decentralized Protocol Governance
+
 </h2>
 
-</div>
-
-<div class="faq-wrapper">
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-What is stOPN?
-
-<span>+</span>
-
-</button>
-
-<div class="faq-answer">
-
 <p>
-stOPN is a liquid staking token that
-represents your staked OPN and accrued
-staking rewards.
+
+Vote on proposals,
+manage treasury,
+and shape the future of OPN Stake Protocol.
+
 </p>
 
 </div>
 
+<div class="dashboard-grid">
+
+<div class="col-6">
+
+<div class="chart-card">
+
+<div class="chart-header">
+
+<h3>
+
+Active Proposals
+
+</h3>
+
 </div>
 
-<div class="faq-item">
+<div id="proposalList">
 
-<button class="faq-question">
+<div class="proposal-card">
 
-What is rstOPN?
+<h4>
 
-<span>+</span>
+Increase Staking Rewards
+
+</h4>
+
+<p>
+
+Increase base staking APR by 0.5%
+
+</p>
+
+<div class="proposal-actions">
+
+<button class="primary-btn vote-btn">
+
+Vote For
 
 </button>
 
-<div class="faq-answer">
+<button class="secondary-btn vote-btn">
 
-<p>
-rstOPN represents stOPN deployed into
-restaking services to generate additional
-yield and security rewards.
-</p>
-
-</div>
-
-</div>
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-Can I unstake anytime?
-
-<span>+</span>
+Vote Against
 
 </button>
 
-<div class="faq-answer">
+</div>
+
+</div>
+
+<div class="proposal-card">
+
+<h4>
+
+Treasury Diversification
+
+</h4>
 
 <p>
-Yes. Users can redeem their stOPN
-through the unstaking queue according
-to protocol conditions.
+
+Allocate 10% treasury into stable assets
+
 </p>
 
-</div>
+<div class="proposal-actions">
 
-</div>
+<button class="primary-btn vote-btn">
 
-<div class="faq-item">
-
-<button class="faq-question">
-
-Is OPN Stake audited?
-
-<span>+</span>
+Vote For
 
 </button>
 
-<div class="faq-answer">
+<button class="secondary-btn vote-btn">
 
-<p>
-The protocol undergoes multiple security
-audits and continuous monitoring.
-</p>
+Vote Against
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="chart-card">
+
+<div class="chart-header">
+
+<h3>
+
+Treasury Overview
+
+</h3>
+
+</div>
+
+<div class="treasury-grid">
+
+<div class="treasury-item">
+
+<span>
+
+Total Treasury
+
+</span>
+
+<strong id="treasuryBalance">
+
+$0
+
+</strong>
+
+</div>
+
+<div class="treasury-item">
+
+<span>
+
+Stables
+
+</span>
+
+<strong>
+
+$0
+
+</strong>
+
+</div>
+
+<div class="treasury-item">
+
+<span>
+
+Reserves
+
+</span>
+
+<strong>
+
+$0
+
+</strong>
+
+</div>
+
+<div class="treasury-item">
+
+<span>
+
+Ecosystem Fund
+
+</span>
+
+<strong>
+
+$0
+
+</strong>
+
+</div>
+
+</div>
 
 </div>
 
@@ -2065,23 +1575,111 @@ audits and continuous monitoring.
 
 </section>
 
-<!-- ===================================================== -->
-<!-- NEWSLETTER -->
-<!-- ===================================================== -->
+<!-- ==========================================
+FAQ SECTION
+========================================== -->
 
-<section class="newsletter-section">
+<section class="protocol-section">
 
 <div class="container">
 
-<div class="newsletter-card">
+<div class="section-header">
+
+<span class="section-badge">
+
+FAQ
+
+</span>
 
 <h2>
+
+Frequently Asked Questions
+
+</h2>
+
+</div>
+
+<div class="faq-container">
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+What is stOPN?
+
+</div>
+
+<div class="faq-answer">
+
+stOPN is a liquid staking token representing
+your staked OPN and accrued rewards.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+What is restaking?
+
+</div>
+
+<div class="faq-answer">
+
+Restaking allows stOPN to be reused
+to secure AVS networks for additional yield.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+Is staking safe?
+
+</div>
+
+<div class="faq-answer">
+
+Staking is secured by validator set
+and slashing mechanisms on OPN Chain.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+NEWSLETTER
+========================================== -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<div class="newsletter-box">
+
+<h2>
+
 Stay Updated
+
 </h2>
 
 <p>
-Receive protocol updates, governance
-announcements and ecosystem news.
+
+Get updates on staking rewards,
+governance proposals,
+and ecosystem growth.
+
 </p>
 
 <div class="newsletter-form">
@@ -2104,9 +1702,9 @@ Subscribe
 
 </section>
 
-<!-- ===================================================== -->
-<!-- FOOTER -->
-<!-- ===================================================== -->
+<!-- ==========================================
+FOOTER
+========================================== -->
 
 <footer class="footer">
 
@@ -2114,127 +1712,61 @@ Subscribe
 
 <div class="footer-grid">
 
-<div class="footer-column">
+<div>
 
-<div class="footer-logo">
+<h3>
 
 OPN Stake
 
-</div>
+</h3>
 
 <p>
 
-Liquid Staking &
-Restaking Infrastructure
-for OPN Chain.
+Liquid Staking & Restaking Infrastructure on OPN Chain.
 
 </p>
 
 </div>
 
-<div class="footer-column">
+<div>
 
 <h4>
+
 Protocol
+
 </h4>
 
 <ul>
 
-<li>
-<a href="#">
-Stake
-</a>
-</li>
+<li>Staking</li>
 
-<li>
-<a href="#">
-Restake
-</a>
-</li>
+<li>Restaking</li>
 
-<li>
-<a href="#">
-Validators
-</a>
-</li>
+<li>Validators</li>
 
-<li>
-<a href="#">
-Analytics
-</a>
-</li>
+<li>Governance</li>
 
 </ul>
 
 </div>
 
-<div class="footer-column">
+<div>
 
 <h4>
-Governance
-</h4>
 
-<ul>
-
-<li>
-<a href="#">
-DAO
-</a>
-</li>
-
-<li>
-<a href="#">
-Treasury
-</a>
-</li>
-
-<li>
-<a href="#">
-Proposals
-</a>
-</li>
-
-<li>
-<a href="#">
-Forum
-</a>
-</li>
-
-</ul>
-
-</div>
-
-<div class="footer-column">
-
-<h4>
 Resources
+
 </h4>
 
 <ul>
 
-<li>
-<a href="#">
-Documentation
-</a>
-</li>
+<li>Docs</li>
 
-<li>
-<a href="#">
-GitHub
-</a>
-</li>
+<li>API</li>
 
-<li>
-<a href="#">
-Audits
-</a>
-</li>
+<li>Analytics</li>
 
-<li>
-<a href="#">
-Support
-</a>
-</li>
+<li>Support</li>
 
 </ul>
 
@@ -2244,32 +1776,7 @@ Support
 
 <div class="footer-bottom">
 
-<div>
-
-© 2026 OPN Stake.
-All Rights Reserved.
-
-</div>
-
-<div class="social-links">
-
-<a href="#">
-<i class="fa-brands fa-x-twitter"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-discord"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-telegram"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-github"></i>
-</a>
-
-</div>
+© 2026 OPN Stake Protocol. All rights reserved.
 
 </div>
 
@@ -2277,39 +1784,32 @@ All Rights Reserved.
 
 </footer>
 
-<!-- ===================================================== -->
-<!-- EXTERNAL LIBRARIES -->
-<!-- ===================================================== -->
+<!-- ==========================================
+TOAST CONTAINER
+========================================== -->
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div id="toastContainer" class="toast-container"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+<!-- ==========================================
+SCRIPTS (FULL SYSTEM WIRING)
+========================================== -->
 
-<script src="https://cdn.jsdelivr.net/npm/@walletconnect/ethereum-provider/dist/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ethers@6/dist/ethers.umd.min.js"></script>
 
-<!-- ===================================================== -->
-<!-- PROJECT JS FILES -->
-<!-- ===================================================== -->
+<script src="https://unpkg.com/@walletconnect/ethereum-provider@2.17.0/dist/index.umd.js"></script>
 
-<script src="assets/js/app.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/notifications.js"></script>
 
 <script src="assets/js/wallet.js"></script>
+<script src="assets/js/walletconnect.js"></script>
 
 <script src="assets/js/staking.js"></script>
-
+<script src="assets/js/analytics.js"></script>
 <script src="assets/js/charts.js"></script>
-
 <script src="assets/js/governance.js"></script>
-
-<!-- ===================================================== -->
-<!-- END DOCUMENT -->
-<!-- ===================================================== -->
-
-</body>
-</html>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/wallet.js"></script>
-<script src="assets/js/staking.js"></script>
 
 </body>
 </html>
