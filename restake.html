@@ -1,1 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        OPN Restake Hub
+    </title>
+
+    <meta name="description"
+          content="Liquid Restaking Protocol on OPN Chain">
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="assets/css/dashboard.css">
+
+    <link rel="stylesheet"
+          href="assets/css/responsive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="container">
+
+        <div class="logo">
+
+            OPN Restake
+
+        </div>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#overview">
+                        Overview
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#restake">
+                        Restake
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#avs">
+                        AVS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#portfolio">
+                        Portfolio
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <button
+            id="openWalletModal"
+            class="connect-wallet-btn">
+
+            Connect Wallet
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="overview">
+
+    <div class="dashboard-container">
+
+        <div class="section-header">
+
+            <span class="badge">
+
+                LIQUID RESTAKING
+
+            </span>
+
+            <h1 class="section-title">
+
+                Secure OPN.
+                Earn More.
+
+            </h1>
+
+            <p class="section-description">
+
+                Restake stOPN across
+                OPN Active Validation Services
+                and maximize staking rewards.
+
+            </p>
+
+        </div>
+
+        <div class="metrics-grid">
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+
+                    Total Restaked
+
+                </div>
+
+                <div
+                    id="totalRestaked"
+                    class="metric-value">
+
+                    0
+
+                </div>
+
+            </div>
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+
+                    Restaking APR
+
+                </div>
+
+                <div
+                    id="restakingAPR"
+                    class="metric-value">
+
+                    0%
+
+                </div>
+
+            </div>
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+
+                    AVS Services
+
+                </div>
+
+                <div
+                    id="avsCount"
+                    class="metric-value">
+
+                    0
+
+                </div>
+
+            </div>
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+
+                    Operators
+
+                </div>
+
+                <div
+                    id="operatorCount"
+                    class="metric-value">
+
+                    0
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     RESTAKING PANEL
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="restake">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-grid">
+
+            <div class="col-6">
+
+                <div class="staking-panel">
+
+                    <h3>
+
+                        Restake stOPN
+
+                    </h3>
+
+                    <div class="stake-input-group">
+
+                        <label>
+
+                            Amount
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="restakeAmount"
+                            class="stake-input"
+                            placeholder="0.00">
+
+                    </div>
+
+                    <div class="stake-summary">
+
+                        <div class="summary-row">
+
+                            <span class="summary-label">
+
+                                Available stOPN
+
+                            </span>
+
+                            <span
+                                id="availableStOPN">
+
+                                0
+
+                            </span>
+
+                        </div>
+
+                        <div class="summary-row">
+
+                            <span class="summary-label">
+
+                                Estimated APR
+
+                            </span>
+
+                            <span>
+
+                                9.5%
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <button
+                        id="restakeBtn"
+                        class="primary-btn">
+
+                        Restake
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="col-6">
+
+                <div class="staking-panel">
+
+                    <h3>
+
+                        Rewards Calculator
+
+                    </h3>
+
+                    <div class="stake-input-group">
+
+                        <label>
+
+                            Amount
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="rewardInput"
+                            class="stake-input">
+
+                    </div>
+
+                    <div class="stake-summary">
+
+                        <div class="summary-row">
+
+                            <span>
+
+                                Monthly
+
+                            </span>
+
+                            <span
+                                id="monthlyRewards">
+
+                                0
+
+                            </span>
+
+                        </div>
+
+                        <div class="summary-row">
+
+                            <span>
+
+                                Yearly
+
+                            </span>
+
+                            <span
+                                id="yearlyRewards">
+
+                                0
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     AVS MARKETPLACE
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="avs">
+
+    <div class="dashboard-container">
+
+        <div class="chart-header">
+
+            <div>
+
+                <div class="chart-title">
+
+                    Active Validation Services
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="governance-grid">
+
+            <div class="proposal-card">
+
+                <span class="proposal-status active">
+
+                    LIVE
+
+                </span>
+
+                <h3>
+
+                    OPN Data Availability
+
+                </h3>
+
+                <p>
+
+                    Decentralized DA layer
+                    for OPN ecosystem.
+
+                </p>
+
+                <br>
+
+                <strong>
+
+                    APR: 2.1%
+
+                </strong>
+
+            </div>
+
+            <div class="proposal-card">
+
+                <span class="proposal-status active">
+
+                    LIVE
+
+                </span>
+
+                <h3>
+
+                    OPN Oracle Network
+
+                </h3>
+
+                <p>
+
+                    Secure decentralized
+                    price feeds.
+
+                </p>
+
+                <br>
+
+                <strong>
+
+                    APR: 1.8%
+
+                </strong>
+
+            </div>
+
+            <div class="proposal-card">
+
+                <span class="proposal-status active">
+
+                    LIVE
+
+                </span>
+
+                <h3>
+
+                    OPN AI Verification
+
+                </h3>
+
+                <p>
+
+                    AI computation validation.
+
+                </p>
+
+                <br>
+
+                <strong>
+
+                    APR: 3.2%
+
+                </strong>
+
+            </div>
+
+            <div class="proposal-card">
+
+                <span class="proposal-status active">
+
+                    LIVE
+
+                </span>
+
+                <h3>
+
+                    OPN Cross-Chain Security
+
+                </h3>
+
+                <p>
+
+                    Shared security network.
+
+                </p>
+
+                <br>
+
+                <strong>
+
+                    APR: 2.4%
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     ANALYTICS
+===================================================== -->
+
+<section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-grid">
+
+            <div class="col-6">
+
+                <div class="chart-card">
+
+                    <div class="chart-title">
+
+                        Restaking TVL
+
+                    </div>
+
+                    <canvas
+                        id="restakeTVLChart">
+
+                    </canvas>
+
+                </div>
+
+            </div>
+
+            <div class="col-6">
+
+                <div class="chart-card">
+
+                    <div class="chart-title">
+
+                        Rewards Growth
+
+                    </div>
+
+                    <canvas
+                        id="rewardsChart">
+
+                    </canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     PORTFOLIO
+===================================================== -->
+
+<section
+    class="dashboard-section"
+    id="portfolio">
+
+    <div class="dashboard-container">
+
+        <div class="portfolio-card">
+
+            <h2>
+
+                Portfolio
+
+            </h2>
+
+            <div class="asset-row">
+
+                <span>
+
+                    stOPN Balance
+
+                </span>
+
+                <span
+                    id="stOPNBalance">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div class="asset-row">
+
+                <span>
+
+                    rstOPN Balance
+
+                </span>
+
+                <span
+                    id="rstOPNBalance">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div class="asset-row">
+
+                <span>
+
+                    Pending Rewards
+
+                </span>
+
+                <span
+                    id="pendingRewards">
+
+                    0
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     WALLET MODAL
+===================================================== -->
+
+<div
+    id="walletModal"
+    class="wallet-modal">
+
+    <div
+        class="wallet-modal-content">
+
+        <h2>
+
+            Connect Wallet
+
+        </h2>
+
+        <button class="wallet-option">
+            MetaMask
+        </button>
+
+        <button class="wallet-option">
+            Rabby
+        </button>
+
+        <button class="wallet-option">
+            OKX Wallet
+        </button>
+
+        <button class="wallet-option">
+            WalletConnect
+        </button>
+
+    </div>
+
+</div>
+
+<div
+    id="toastContainer"
+    class="toast-container">
+</div>
+
+<footer class="footer">
+
+    <div class="container">
+
+        © 2026 OPN Restake Hub
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6/dist/ethers.umd.min.js"></script>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/notifications.js"></script>
+
+<script src="assets/js/wallet.js"></script>
+<script src="assets/js/walletconnect.js"></script>
+
+<script src="assets/js/staking.js"></script>
+<script src="assets/js/analytics.js"></script>
+<script src="assets/js/charts.js"></script>
+
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>
