@@ -379,7 +379,36 @@ function formatPercent(value) {
    GLOBAL EXPORTS
    ========================================================== */
 
-window.CONFIG = CONFIG;
+window.CONFIG = {
+
+  API: {
+    BASE_URL: "https://opn-api.vercel.app",
+
+    TVL: "/tvl",
+    APR: "/apr",
+    VALIDATORS: "/validators",
+    TREASURY: "/treasury",
+    GOVERNANCE: "/governance",
+    RESTAKING: "/restaking",
+    REWARDS: "/rewards"
+  },
+
+  DASHBOARD: {
+    REFRESH_INTERVAL: 30000
+  },
+
+  CHAIN: {
+    chainId: 1,
+    name: "OPN Chain",
+    rpc: "https://rpc.opnchain.io"
+  },
+
+  CONTRACTS: {
+    stOPN: "0x0000000000000000000000000000000000000000",
+    rstOPN: "0x0000000000000000000000000000000000000000",
+    RestakingManager: "0x0000000000000000000000000000000000000000"
+  }
+};
 
 window.CONTRACT_ABIS = CONTRACT_ABIS;
 
