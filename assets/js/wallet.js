@@ -747,3 +747,9 @@ if (window.ethereum) {
         }
     );
 }
+window.walletManager =
+    new WalletManager();
+
+console.log(
+    "Wallet Manager Ready"
+);
