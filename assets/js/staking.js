@@ -477,70 +477,43 @@ const contract =
 
     async registerEvents() {
 
-        try {
+    try {
 
-            const stContract =
-                await this.getStOPNContract();
+        const contract =
+            await this.getStOPNContract();
 
-            stContract.on(
-                "Staked",
-                (
-                    user,
-                    amount
-                ) => {
+        if (!contract) {
 
-                    console.log(
-                        "Stake Event",
-                        user,
-                        amount.toString()
-                    );
-
-                    this.loadProtocolData();
-                }
+            console.warn(
+                "Wallet not connected - event listeners disabled"
             );
 
-            stContract.on(
-                "Unstaked",
-                (
-                    user,
-                    amount
-                ) => {
-
-                    console.log(
-                        "Unstake Event",
-                        user,
-                        amount.toString()
-                    );
-
-                    this.loadProtocolData();
-                }
-            );
-
-            const restaking =
-                await this.getRestakingContract();
-
-            restaking.on(
-                "Restaked",
-                (
-                    user,
-                    amount
-                ) => {
-
-                    console.log(
-                        "Restake Event",
-                        user,
-                        amount.toString()
-                    );
-
-                    this.loadProtocolData();
-                }
-            );
-
-        } catch(error){
-
-            console.error(error);
+            return;
         }
+
+        contract.on(
+            "Transfer",
+            (...args) => {
+
+                console.log(
+                    "Transfer Event",
+                    args
+                );
+            }
+        );
+
+        console.log(
+            "Contract listeners registered"
+        );
+
+    } catch (error) {
+
+        console.error(
+            "registerEvents failed",
+            error
+        );
     }
+}
 
     /* ==================================================
        REALTIME REFRESH
