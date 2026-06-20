@@ -200,30 +200,17 @@ class StakingManager {
 
         try {
 
-            if(
-                !walletManager.connected
-            ){
+            if (!walletManager.isConnected()) {
 
-                walletManager.openModal();
+    console.log(
+        "Wallet not connected"
+    );
 
-                return;
-            }
+    return;
+}
 
-            const amount =
-                this.stakeInput.value;
-
-            if(
-                !amount ||
-                Number(amount) <= 0
-            ){
-
-                throw new Error(
-                    "Invalid amount"
-                );
-            }
-
-            const contract =
-                await this.getStOPNContract();
+const contract =
+    await walletManager.getContract();
 
             walletManager.notify(
                 "Submitting stake transaction..."
