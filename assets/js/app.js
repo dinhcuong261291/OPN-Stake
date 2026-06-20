@@ -542,40 +542,59 @@ function(
    ========================================================== */
 
 document.addEventListener(
-
     "DOMContentLoaded",
+    () => {
 
-    async ()=>{
+        const connectBtn =
+            document.getElementById(
+                "connectWalletBtn"
+            );
 
-        console.log(
-            "Application Bootstrapped"
-        );
+        if (connectBtn) {
 
-        if(window.analytics){
+            connectBtn.addEventListener(
+                "click",
+                async () => {
 
-            try {
+                    const address =
+                        await walletManager.connectMetaMask();
 
-                await analytics.loadMetrics();
+                    if (!address)
+                        return;
 
-            } catch(e){}
-        }
+                    const shortAddress =
+                        address.substring(0, 6) +
+                        "..." +
+                        address.substring(
+                            address.length - 4
+                        );
 
-        if(window.chartsManager){
+                    connectBtn.innerText =
+                        shortAddress;
 
-            try {
+                    const walletInfo =
+                        document.getElementById(
+                            "walletInfo"
+                        );
 
-                await chartsManager.refreshAll();
+                    const walletAddress =
+                        document.getElementById(
+                            "walletAddress"
+                        );
 
-            } catch(e){}
-        }
+                    if (
+                        walletInfo &&
+                        walletAddress
+                    ) {
 
-        if(window.governance){
+                        walletInfo.style.display =
+                            "flex";
 
-            try {
-
-                await governance.loadGovernanceData();
-
-            } catch(e){}
+                        walletAddress.innerText =
+                            address;
+                    }
+                }
+            );
         }
     }
 );
