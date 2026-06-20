@@ -34,43 +34,75 @@ class NotificationManager {
 
     createContainer() {
 
-        this.container =
-            document.getElementById(
-                "toastContainer"
-            );
+    let container =
+        document.getElementById(
+            "toastContainer"
+        );
 
-        if(this.container)
-            return;
+    if (!container) {
 
-        this.container =
+        container =
             document.createElement(
                 "div"
             );
 
-        this.container.id =
+        container.id =
             "toastContainer";
 
-        this.container.className =
+        container.className =
             "toast-container";
 
-        document.body.appendChild(
-            this.container
-        );
+        if (document.body) {
+
+            document.body.appendChild(
+                container
+            );
+
+        } else {
+
+            window.addEventListener(
+                "DOMContentLoaded",
+                () => {
+
+                    document.body.appendChild(
+                        container
+                    );
+                }
+            );
+        }
     }
+
+    this.container =
+        container;
+}
 
     /* ==================================================
        CREATE TOAST
        ================================================== */
 
     show(
-        message,
-        type = "info",
-        duration = null
-    ){
+    message,
+    type = "info",
+    duration = null
+){
 
-        duration =
-            duration ||
-            this.defaultDuration;
+    if (!this.container) {
+
+        this.createContainer();
+    }
+
+    if (!this.container) {
+
+        console.warn(
+            "Toast container unavailable"
+        );
+
+        return;
+    }
+
+    duration =
+        duration ||
+        this.defaultDuration;
 
         if(
             this.container.children.length
@@ -503,8 +535,18 @@ class NotificationManager {
    GLOBAL INSTANCE
    ========================================================== */
 
-window.notify =
-    new NotificationManager();
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        window.notify =
+            new NotificationManager();
+
+        console.log(
+            "Notifications Loaded"
+        );
+    }
+);
 
 /* ==========================================================
    SHORTCUTS
@@ -528,19 +570,3 @@ window.toast = {
     (...args)=>
     notify.info(...args)
 };
-
-/* ==========================================================
-   READY
-   ========================================================== */
-
-document.addEventListener(
-
-    "DOMContentLoaded",
-
-    ()=>{
-
-        console.log(
-            "Notifications Loaded"
-        );
-    }
-);
