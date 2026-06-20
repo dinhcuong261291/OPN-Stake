@@ -10,27 +10,159 @@ class WalletManager {
 
         this.provider = null;
         this.signer = null;
-
-        this.account = null;
+        this.address = null;
         this.chainId = null;
+    }
 
-        this.connected = false;
+    async connectMetaMask() {
 
-        this.OPN_CHAIN = {
-            chainId: "0x7A69", // replace with real OPN chain
-            chainName: "OPN Chain",
-            nativeCurrency: {
-                name: "OPN",
-                symbol: "OPN",
-                decimals: 18
-            },
-            rpcUrls: [
-                "https://rpc.opnchain.io"
-            ],
-            blockExplorerUrls: [
-                "https://scan.opnchain.io"
-            ]
-        };
+        try {
+
+            if (!window.ethereum) {
+
+                alert(
+                    "MetaMask not installed"
+                );
+
+                return null;
+            }
+
+            const accounts =
+                await window.ethereum.request({
+                    method:
+                        "eth_requestAccounts"
+                });
+
+            this.provider =
+                new ethers.BrowserProvider(
+                    window.ethereum
+                );
+
+            this.signer =
+                await this.provider.getSigner();
+
+            this.address =
+                accounts[0];
+
+            const network =
+                await this.provider.getNetwork();
+
+            this.chainId =
+                Number(network.chainId);
+
+            console.log(
+                "Wallet Connected:",
+                this.address
+            );
+
+            document.dispatchEvent(
+                new CustomEvent(
+                    "walletConnected",
+                    {
+                        detail: {
+                            address:
+                                this.address,
+                            chainId:
+                                this.chainId
+                        }
+                    }
+                )
+            );
+
+            return this.address;
+
+        } catch (error) {
+
+            console.error(
+                "MetaMask connection failed",
+                error
+            );
+
+            return null;
+        }
+    }
+
+    async disconnect() {
+
+        this.provider = null;
+        this.signer = null;
+        this.address = null;
+
+        console.log(
+            "Wallet disconnected"
+        );
+    }
+
+    isConnected() {
+
+        return (
+            this.signer !== null
+        );
+    }
+
+    getAddress() {
+
+        return this.address;
+    }
+
+    getSigner() {
+
+        return this.signer;
+    }
+
+    getProvider() {
+
+        return this.provider;
+    }
+
+    getContract(
+        address,
+        abi
+    ) {
+
+        if (!this.signer) {
+
+            return null;
+        }
+
+        return new ethers.Contract(
+            address,
+            abi,
+            this.signer
+        );
+    }
+
+    async switchToOPNChain() {
+
+        try {
+
+            await window.ethereum.request({
+
+                method:
+                    "wallet_switchEthereumChain",
+
+                params: [
+                    {
+                        chainId:
+                            CONFIG.CHAIN.chainIdHex
+                    }
+                ]
+
+            });
+
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+}
+
+window.walletManager =
+    new WalletManager();
+
+console.log(
+    "Wallet Manager Ready"
+);
 
         this.init();
     }
