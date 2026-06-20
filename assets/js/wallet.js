@@ -714,3 +714,36 @@ document.addEventListener(
         );
     }
 );
+if (window.ethereum) {
+
+    window.ethereum.on(
+        "accountsChanged",
+        accounts => {
+
+            if (
+                accounts.length === 0
+            ) {
+
+                location.reload();
+
+                return;
+            }
+
+            walletManager.address =
+                accounts[0];
+
+            console.log(
+                "Account Changed:",
+                accounts[0]
+            );
+        }
+    );
+
+    window.ethereum.on(
+        "chainChanged",
+        () => {
+
+            location.reload();
+        }
+    );
+}
