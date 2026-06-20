@@ -6,9 +6,9 @@
 
 const CONFIG = {
 
-    CHAIN: {
+     CHAIN: {
 
-        chainId: 2048,
+        chainId: 984,
 
         chainIdHex:
             "0x800",
