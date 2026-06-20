@@ -488,24 +488,18 @@ class WalletManager {
        CONTRACT HELPERS
        ========================================================== */
 
-    async getContract(
-        address,
-        abi
-    ){
+    async getContract(address, abi) {
 
-        if(!this.signer){
-
-            throw new Error(
-                "Wallet not connected"
-            );
-        }
-
-        return new ethers.Contract(
-            address,
-            abi,
-            this.signer
-        );
+    if (!this.signer) {
+        return null;
     }
+
+    return new ethers.Contract(
+        address,
+        abi,
+        this.signer
+    );
+}
 
     /* ==========================================================
        SIGN MESSAGE
