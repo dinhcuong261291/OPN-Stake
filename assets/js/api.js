@@ -74,15 +74,14 @@ class APIService {
             return await response.json();
 
         } catch (error) {
+    console.warn("API failed → fallback mode");
 
-            console.error(
-                "API Request Failed:",
-                error
-            );
-
-            throw error;
-        }
-    }
+    return {
+        tvl: 125000000,
+        apr: 7.8,
+        fallback: true
+    };
+}
 
     /* ==================================================
        CACHE
@@ -686,13 +685,3 @@ document.addEventListener(
         );
     }
 );
-catch (error) {
-    console.warn("API failed → fallback mode");
-
-    return {
-        tvl: 125000000,
-        apr: 7.8,
-        fallback: true
-    };
-}
-console.log("[API BASE]", this.baseURL);
