@@ -43,7 +43,24 @@ OPN Stake | Liquid Staking & Restaking Infrastructure
 
 </head>
 
-<body>
+<!-- Ethers v6 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.1/ethers.umd.min.js"></script>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/notifications.js"></script>
+
+<script src="assets/js/wallet.js"></script>
+<script src="assets/js/walletconnect.js"></script>
+
+<script src="assets/js/staking.js"></script>
+<script src="assets/js/analytics.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/governance.js"></script>
+
+<script src="assets/js/app.js"></script>
+
+</body>
 
 <!-- ==========================================
 NAVBAR
@@ -108,14 +125,22 @@ OPN Mainnet
 </div>
 
 <button
-id="openWalletModal"
-class="connect-wallet-btn">
+    id="connectWalletBtn"
+    class="btn btn-primary">
 
-Connect Wallet
+    Connect Wallet
 
 </button>
 
 </div>
+<div
+    id="walletInfo"
+    class="wallet-info"
+    style="display:none;">
+
+    Connected:
+
+    <span id="walletAddress"></span>
 
 </div>
 
